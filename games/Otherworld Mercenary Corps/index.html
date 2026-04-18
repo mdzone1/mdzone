@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#0f172a" id="metaThemeColor">
+    
+    <title>Otherworld Mercenary Corps MOD APK V2.6.7</title>
+    <link rel="icon" href="https://play-lh.googleusercontent.com/lHxirTzG2mGaiItgJNqx_YljcQPYA-o67EYg1uFjhsR1TksYY9keY_Nm-IJiebxLnfJG63myQ_rJFCKinHrXdQ=s512" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        const savedTheme = localStorage.getItem('modora_theme');
+        if(savedTheme === 'light') { 
+            document.documentElement.classList.add('light-mode'); 
+            document.getElementById('metaThemeColor').setAttribute('content', '#f1f5f9');
+        }
+        const savedFont = localStorage.getItem('modora_font');
+        if(savedFont) { document.documentElement.style.setProperty('--font-main', savedFont); }
+    </script>
+
+    <style>
+        :root {
+            --header-h: 70px;
+            --bg-body: #0f172a; --bg-card: #1e293b; --bg-glass: rgba(15, 23, 42, 0.85);
+            --text-main: #f8fafc; --text-muted: #94a3b8; --border: #334155;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.2); --card-border: rgba(255, 255, 255, 0.05);
+            --search-bg: #334155; --glass-blur: blur(20px);
+            --primary: #2563eb; --secondary: #4f46e5; --accent: #ef4444; 
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html.light-mode {
+            --bg-body: #f1f5f9; --bg-card: #ffffff; --bg-glass: rgba(255, 255, 255, 0.85);
+            --text-main: #0f172a; --text-muted: #64748b; --border: #e2e8f0;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.04); --card-border: var(--border); --search-bg: #e2e8f0;
+        }
+        html.eco-mode { --bg-glass: var(--bg-card); --glass-blur: none; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); outline: none; -webkit-tap-highlight-color: transparent; }
+        html, body { width: 100%; overflow-x: hidden; scroll-behavior: smooth; background-color: var(--bg-body); color: var(--text-main); }
+        body { padding-top: calc(var(--header-h) + 15px); padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 30px); }
+        
+        #mainView { width: 100%; padding: 0 24px; margin: 0 auto; max-width: 600px; animation: appEntry 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes appEntry { 0% { opacity: 0; transform: translateY(15px); } 100% { opacity: 1; transform: translateY(0); } }
+
+        header { position: fixed; top: 0; left: 0; width: 100%; height: var(--header-h); padding: 0 24px; background: var(--bg-glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); z-index: 1000; }
+        .btn-back { width: 40px; height: 40px; background: var(--search-bg); color: var(--text-main); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; text-decoration: none; transition: transform 0.2s; cursor: pointer; }
+        .btn-back:active { transform: scale(0.9); }
+        .header-title { font-weight: 800; font-size: 18px; letter-spacing: -0.5px; }
+        .btn-tele { width: 40px; height: 40px; background: #29b6f6; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; text-decoration: none; transition: transform 0.2s; box-shadow: 0 4px 10px rgba(41, 182, 246, 0.3); }
+
+        .app-hero { display: flex; align-items: center; gap: 20px; margin-bottom: 25px; margin-top: 10px; }
+        .app-icon-wrap { position: relative; width: 100px; height: 100px; flex-shrink: 0; }
+        .app-icon { width: 100%; height: 100%; border-radius: 25px; object-fit: cover; box-shadow: var(--shadow); border: 1px solid var(--card-border); }
+        .mod-badge { position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 10px; font-weight: 800; padding: 4px 12px; border-radius: 12px; border: 3px solid var(--bg-body); box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap; }
+        
+        .app-titles { flex: 1; }
+        .app-name { font-size: 18px; font-weight: 800; line-height: 1.2; margin-bottom: 6px; letter-spacing: -0.5px; }
+        .app-dev { font-size: 14px; color: var(--primary); font-weight: 600; }
+
+        .action-top-wrap { margin-bottom: 20px; display: flex; flex-direction: column; gap: 5px; }
+        .btn-download-huge { 
+            width: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); 
+            color: white; border: none; padding: 15px; border-radius: 20px; text-decoration: none;
+            font-size: 16px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-direction: column;
+            cursor: pointer; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4); transition: transform 0.2s, box-shadow 0.2s; 
+        }
+        .btn-download-huge:active { transform: scale(0.97); box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4); }
+        .btn-date { font-size: 11px; font-weight: 600; opacity: 0.85; margin-top: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Social Notification */
+        .social-notice { background: var(--bg-card); border: 1px solid var(--card-border); border-radius: 16px; padding: 15px; margin-bottom: 25px; text-align: center; box-shadow: var(--shadow); }
+        .social-notice p { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: var(--text-main); }
+        .social-links { display: flex; gap: 10px; justify-content: center; }
+        .btn-wa, .btn-tg { flex: 1; padding: 10px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; color: white; transition: transform 0.2s; }
+        .btn-wa { background: #25D366; }
+        .btn-tg { background: #2AABEE; }
+        .btn-wa:active, .btn-tg:active { transform: scale(0.95); }
+
+        .mini-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+        .btn-mini { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--card-border); padding: 12px 5px; border-radius: 16px; font-size: 11px; font-weight: 700; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; cursor: pointer; transition: transform 0.2s, background 0.2s; box-shadow: var(--shadow); text-decoration: none; }
+        .btn-mini:active { transform: scale(0.95); background: var(--search-bg); }
+        .btn-mini i { font-size: 18px; color: var(--primary); }
+
+        .mod-feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 30px; }
+        .mod-feat-card { background: var(--bg-card); padding: 12px 15px; border-radius: 16px; border: 1px solid var(--card-border); display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; color: var(--text-main); line-height: 1.3; }
+        .mod-feat-card i { color: var(--accent); font-size: 16px; flex-shrink: 0; }
+
+        .section-head { font-size: 18px; font-weight: 800; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; letter-spacing: -0.3px; }
+        .section-head ion-icon { color: var(--primary); font-size: 20px; }
+        
+        .ss-wrap { margin-right: -24px; padding-right: 24px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; padding-bottom: 15px; margin-bottom: 15px; }
+        .ss-wrap::-webkit-scrollbar { display: none; }
+        .ss-scroll { display: flex; gap: 15px; width: max-content; }
+        .ss-img { height: 280px; width: auto; border-radius: 18px; scroll-snap-align: start; box-shadow: var(--shadow); border: 1px solid var(--card-border); object-fit: cover; cursor: pointer; transition: opacity 0.2s; }
+        .ss-img:active { opacity: 0.7; }
+
+        .content-box { background: var(--bg-card); padding: 20px; border-radius: 24px; border: 1px solid var(--card-border); font-size: 14px; line-height: 1.7; color: var(--text-muted); margin-bottom: 25px; }
+        .content-box strong { color: var(--text-main); }
+        .content-box p { margin-bottom: 10px; }
+        .content-box p:last-child { margin-bottom: 0; }
+
+        /* Lightbox CSS */
+        .lightbox { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; flex-direction: column; opacity: 0; transition: opacity 0.3s; }
+        .lightbox.show { display: flex; opacity: 1; }
+        .lightbox-content { max-width: 85vw; max-height: 80vh; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .lightbox.show .lightbox-content { transform: scale(1); }
+        
+        .close-lb { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 24px; cursor: pointer; width: 40px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 10001; }
+        .close-lb:active { background: rgba(255,255,255,0.3); }
+        
+        .prev-lb, .next-lb { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; color: white; font-size: 20px; transition: 0.3s; user-select: none; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); z-index: 10001; }
+        .prev-lb:active, .next-lb:active { background: rgba(255,255,255,0.4); }
+        .prev-lb { left: 10px; } 
+        .next-lb { right: 10px; }
+
+        @media (min-width: 900px) { #mainView { max-width: 800px; } header { padding-left: 5%; padding-right: 5%; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="../../" class="btn-back"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="header-title">Detail App</div>
+        <a href="../../../../telegram" class="btn-tele"><i class="fa-brands fa-telegram"></i></a>
+    </header>
+
+    <div id="mainView">
+        <div class="app-hero">
+            <div class="app-icon-wrap">
+                <img src="https://play-lh.googleusercontent.com/lHxirTzG2mGaiItgJNqx_YljcQPYA-o67EYg1uFjhsR1TksYY9keY_Nm-IJiebxLnfJG63myQ_rJFCKinHrXdQ=s512" class="app-icon" alt="Otherworld Mercenary Corps MOD APK V2.6.7">
+                <div class="mod-badge">MOD APK</div>
+            </div>
+            <div class="app-titles">
+                <h1 class="app-name">Otherworld Mercenary Corps MOD APK V2.6.7</h1>
+                <div class="app-dev"><a href="https://play.google.com/store/apps/details?id=com.Cryptect.Mercenary" target="_blank" style="color: inherit; text-decoration: none;">Cryptect</a></div>
+            </div>
+        </div>
+
+        <div class="action-top-wrap">
+            
+            <a href="https://safefileku.com/download/DpKdtrqf8rTX2S4M" class="btn-download-huge" style="margin-bottom: 12px;">
+                <div><span>DOWNLOAD (795.96 MB)</span></div>
+                <div class="btn-date">Update: 18 April 2026</div>
+            </a>
+            <div class="mini-actions">
+                <a href="../../tutorials" class="btn-mini">
+                    <i class="fa-solid fa-book-open"></i><span>Tutorials Unduh</span>
+                </a>
+                <a href="../../requests" class="btn-mini">
+                    <i class="fa-solid fa-code-pull-request"></i><span>Requests</span>
+                </a>
+                <a href="../../" class="btn-mini">
+                    <i class="fa-solid fa-house"></i><span>Home</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="social-notice">
+            <p>JOIN COMMUNITY FOR NEW UPDATES</p>
+            <div class="social-links">
+                <a href="../../../../../whatsapp" target="_blank" class="btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="../../../../../telegram" target="_blank" class="btn-tg"><i class="fa-brands fa-telegram"></i> Telegram</a>
+            </div>
+        </div>
+
+        <div class="mod-feature-grid">
+            <div class="mod-feat-card"><i class="fa-solid fa-circle-check"></i> <span>New Update</span></div><div class="mod-feat-card"><i class="fa-solid fa-circle-check"></i> <span>God Mode</span></div><div class="mod-feat-card"><i class="fa-solid fa-circle-check"></i> <span>Menu Mod</span></div><div class="mod-feat-card"><i class="fa-solid fa-circle-check"></i> <span>Damage Multiplier Defense Multiplier God Mode Attack Speed Multiplier Faster Move Speed Freeze Enemy Attack Never Miss</span></div>
+        </div>
+
+        <div class="section-head"><ion-icon name="images"></ion-icon> Screenshots</div>
+        <div class="ss-wrap">
+            <div class="ss-scroll">
+                <img src="https://play-lh.googleusercontent.com/r7zQkmbd1b4K3bw13Q_0UuScBV85Ir7dkQkWIgwPX9BVGYMaIdiybuHlEcCs4HyakA=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/dkCdUqIxptG7ltBJX4fCVqRPL8HvFiXzxXbI2pmkevKEApTZz7KuK2kQ0209sqcuXwMulD2XBqluY5GyRImZcF4=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/RoSiFQtIWd5bT4lIrvnVtxF1pUDmqg9IaFvBKMh-rBCaUwWz7zX3NHWQQrzjXTz4Dmg=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/Ypa5clu0_XyZgw1Oxavz3bknx9XCzeaNC1nn6efpQGZQcNFkiW-oQl_RPkI9ypBHU18=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/eAZ7Fj0WopiUjn_ZxgNoY4PYOlp-C5auX_EV8TQBzkuS2bSOvhxsimrEpPiubHro9xM=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/pwJC92IrrmzpuXuHJTXxFFEGFY58jI21OAiKHBTWZEkjBVBUBziLD9UCk0GPxhKwqA=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/mQUZNo9e5Nc7sIQeC7Z0XL43FYsbJteADgLWVucP2cezM2uYiXwlDS8KguBbsjDL46Y=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/PpQ8IobnCBQ6T1bgYf4ibNZcblbmwz96dO5E9uJhedzRhdgI6NY1jWdkxmUUyfQ6gA=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/Yh9BtLCGoir5o-69GQ9ZBeRsQ65l3-C-GyAqHiNuVMA9HgibkbhiHpayodiDfEJbcsA=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/uJiBD0vgVzsgKn0jN73fkfRobLfX1UgL2nUwKbWyle7zKOWNXG6ImavTvV4eBmzQJP4x=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/ivvkXERCGRqBe5WyAMHs8KWGpxs_9FimkuQiMuIahCXjRRdQZOhZkSxKgqtxjooS5Q=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/jaK2Sc9uiVHAqddb6vbJkG1o9kfFTcQLwdlA8WKcmn92TYm_lLC5kzqJv0qmwb9gvg=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/vIKhYKcwWhLLrQFUOVTiY5ZCdxm5ai6OQkbMmLNHeV6eZT4HmOEobqtSLz_caxTMReI=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/ueWm54qyc-zam9PNR8h7uG-LvPO2bmEaVq6KWYzTxvMESxXuWgwn6CIjMQmsbRPh6g=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/T9_6kfSZOdUd6Jo1ixwDMZnYPggysftHa4TRyECgjL4gspNrquYep987SZW-xbFHDg=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/TPyN9l48WQ_QSQiBxlWwCqZ-wd38djRMvjBlzR18dBwuEhBrzN5pa3HmFqCCj9b8gA=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/ZSUDTbUc_rcxdFdWgPYYFzrBH5Hw8eJ_k3fWu0QJsdKOGvL-RTgwS_PgblPjI6eEtiU=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/qL-3B5RDfgJcQlyHO9nDCqprlopqXSzvczwIM1q2K1GWhK6lYmQT4uoG2MK8vqZaZL8=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/IExroNIYi4CQPbnnpY5wrLfF4j34CU8eA8mlJgsSC-MkOUxRIuGfhuDlDrFY12MJIl0=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/jQkBrsDByZX8wYdsFIDzXV91lvN8mcw4XVxunRmmAhM2zws6rkS2U-wFsiqEJ8zdQEM=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/f9r0379uTeft30NUM3QQIqUc4EW-ukHH6rF5cslUBoc22aHhfXwdtZMHXOhfsXUAxg=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                <img src="https://play-lh.googleusercontent.com/LDhVykDQyDF6iTG_Dm-lOj-x2lCbu00FnV_ITxgABFmE6YzGYBN6r3-RXyWn9EBW2BA=s720" class="ss-img" alt="MODORA Official" loading="lazy">
+                
+            </div>
+        </div>
+
+        <div class="section-head"><ion-icon name="document-text"></ion-icon> Description</div>
+        <div class="content-box">
+            <p>Join the adventures of a commander from another world who trains a mercenary corps</p>
+            <p>sworn to protect the blessed continent of Vles Terra from the clutches of the Demon King!</p>
+            
+            <p>Dive into Otherworld Mercenary Corps, a game adorned with stunning character illustrations and top-notch pixel graphics,</p>
+            <p>offering a wealth of content to conquer, a gripping storyline, and the exciting prospect of collecting characters and items!</p>
+            
+            <p>---------------------------------</p>
+            
+            <p>■ Adventures in another world ■</p>
+            <p>The tumultuous journey of an ordinary office worker summoned to the continent of Vles Terra to become a mercenary commander!</p>
+            <p>Embark on a quest to find the seven Primordial Cores scattered across the continent while carrying out missions for Witch Queen Isabella!</p>
+            
+            <p>■ Witness your growth wherever you go ■</p>
+            <p>Challenge yourself to dozens of areas based on your combat power!</p>
+            <p>Don't forget to go through Story Mode to watch the mercenary commander's growth!</p>
+            
+            <p>■ High-quality pixel graphics ■</p>
+            <p>Boasting the highest level of quality among mobile games!</p>
+            <p>Experience the joy of watching the cute and stylish pixel characters in action!</p>
+            
+            <p>■ Vibrant original art ■</p>
+            <p>Immerse yourself in the vivid 2D animations</p>
+            <p>and character-specific illustrations, each brimming with unique charms!</p>
+            
+            <p>■ Relationship with characters ■</p>
+            <p>Interact with your favorite characters to enhance your combat power!</p>
+            <p>Each character has a different personality, so choose answers to their questions carefully if you want to form a positive bond with them!</p>
+            
+            <p>■ Fierce competitive battles ■</p>
+            <p>Strategize your way to higher rankings and better rewards!</p>
+            <p>Strengthen your mercenaries, build your unique deck, and engage in fierce competition with other players to rise to the top!</p>
+            
+            <p>---------------------------------</p>
+            
+            <p>■ Official community: https://discord.gg/T4gQ3Fj8</p>
+            
+            <p>Minimum OS Version</p>
+            <p>Android 6.0</p>
+            <p>RAM 4GB</p>
+            <p>Storage Space 4GB</p>
+            
+            <p>Collected IMEI Information</p>
+            <p>Device information (device status and ID) is used for account creation and verification.</p>
+            <p>It may be used for various marketing, promotions, and advertisements.</p>
+            <p>This information is only used for a smooth gaming experience and will be retained until the service is terminated.</p>
+            
+            <p>Required Permissions</p>
+            <p>Storage space (access to photos, media, and files): Used for installing the game and saving or loading data.</p>
+            <p>Phone (making and managing calls): Used for user device information during registration.</p>
+            
+            <p>Optional Permissions</p>
+            <p>Microphone: Used to record from the microphone when saving videos.</p>
+            <p>SMS, Contacts: Used for account verification and providing the latest game updates and services.</p>
+            <p>Location Information: Used for push notification settings.</p>
+            <p>Notification: Used for receiving push notifications. (Android 13 and above)</p>
+            <p>※ A notification popup will be displayed when an account is initially created, and you can still use the service even if you do not agree to receive push notifications.</p>
+            
+            <p>How to Revoke Access Permissions</p>
+            <p>For operating systems 6.0 and above: Settings &gt; Apps &gt; Select App &gt; Permissions &gt; Don't allow</p>
+            <p>For operating systems below 6.0: Access permissions cannot be revoked, so you need to uninstall the app or update the operating system.</p>
+            
+            <p>---------------------------------</p>
+            
+            <p>Email: support@cryptect.co.kr</p>
+            
+            <p>Business Registration Number: 312-87-01164</p>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lb"><i class="fa-solid fa-xmark"></i></span>
+        <span class="prev-lb"><i class="fa-solid fa-chevron-left"></i></span>
+        <img class="lightbox-content" id="img-lb">
+        <span class="next-lb"><i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <script>
+        function loadSettingsForDetail() {
+            const savedColor = localStorage.getItem('modora_color');
+            const savedSec = localStorage.getItem('modora_color_sec');
+            if(savedColor) {
+                document.documentElement.style.setProperty('--primary', savedColor);
+                document.documentElement.style.setProperty('--secondary', savedSec);
+            }
+            if(localStorage.getItem('modora_eco') === 'true') {
+                document.documentElement.classList.add('eco-mode');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadSettingsForDetail();
+            
+            // Inisialisasi Lightbox
+            const lb = document.getElementById('lightbox');
+            const lbImg = document.getElementById('img-lb');
+            const images = document.querySelectorAll('.ss-img');
+            let currentIndex = 0;
+
+            images.forEach((img, index) => {
+                img.addEventListener('click', () => {
+                    lb.classList.add('show');
+                    lbImg.src = img.src;
+                    currentIndex = index;
+                });
+            });
+
+            document.querySelector('.close-lb').onclick = () => lb.classList.remove('show');
+            
+            document.querySelector('.prev-lb').onclick = (e) => {
+                e.stopPropagation();
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+                lbImg.src = images[currentIndex].src;
+            };
+            
+            document.querySelector('.next-lb').onclick = (e) => {
+                e.stopPropagation();
+                currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+                lbImg.src = images[currentIndex].src;
+            };
+            
+            // Tutup jika klik diluar area gambar
+            lb.onclick = (e) => { 
+                if(e.target === lb) lb.classList.remove('show'); 
+            };
+        });
+    </script>
+    <script type="text/javascript">
+        var go_url = 'https://sfl.gl/'; var api = 'fb07e3f8a153f98c27902d074eb8e00359d5d144'; var shorten_includ = ["safefileku.com"];
+    </script>
+    <script src="//safelinku.com/js/web-script.js"></script>
+</body>
+</html>
